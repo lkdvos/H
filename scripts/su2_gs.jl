@@ -14,7 +14,7 @@ path = datadir("sims", "gs")
 
 ## Save groundstates
 for params in dict_list(allparams)
-    data, s = produce_or_load(path, params, su2_gs_simulations; loadfile=true, tag=false, force=false)
+    data, s = produce_or_load(path, params, su2_gs_simulations; loadfile=true, tag=false, force=true)
     @unpack gs, envs, delta, E, sigma = data
     println("GS for spin $(params[:spin]), spt $(params[:spt]) at sval $(params[:sval]): E = $E ± $sigma")
     p = entanglementplot(gs, title="SPT=$(params[:spt]), Cut=$(params[:sval])")
@@ -31,7 +31,7 @@ allparams = Dict(
 )
 
 for params in dict_list(allparams)
-    data, s = produce_or_load(datadir("sims", "xi"), params, su2_xi_simulations; tag=false, force=false)
+    data, s = produce_or_load(datadir("sims", "xi"), params, su2_xi_simulations; tag=false, force=true)
     
     println("Correlation length for spin $(params[:spin]), spt $(params[:spt]):")
     for (key, val) in data["ξs"]
@@ -52,7 +52,7 @@ allparams = Dict(
 )
 
 for params in dict_list(allparams)
-    data, s = produce_or_load(datadir("sims", "gap"), params, su2_gap_simulations; tag=false, force=false)
+    data, s = produce_or_load(datadir("sims", "gap"), params, su2_gap_simulations; tag=false, force=true)
     @unpack Es, Bs = data
     
     p = plot(

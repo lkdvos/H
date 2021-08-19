@@ -8,7 +8,7 @@ using Reexport
 @reexport using MPSKit
 @reexport using Plots
 @reexport using KrylovKit
-using JLD2
+@reexport using JLD2
 using SUNRepresentations
 using Parameters
 using LsqFit

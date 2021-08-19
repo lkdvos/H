@@ -9,7 +9,7 @@ function su2_gs_simulations(params)
         alg_changebonds = TwoSite(scut=scut, tol_eigenval=1e-6, tol_scut=1.5),
         maxiter = 50
     )
-    converge_alg = GradientGrassmann(tol=1e-10)
+    converge_alg = GradientGrassmann(tol=1e-10, maxiter=200)
     initial = su2_initial_state(spin, spt)
     
     
