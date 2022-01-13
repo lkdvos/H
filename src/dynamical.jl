@@ -105,7 +105,7 @@ export TwoSite
     tol_eigenval::Float64
 end
 
-function MPSKit.changebonds(state::InfiniteMPS, H::Hamiltonian, alg::TwoSite, envs=environments(state,H))
+function MPSKit.changebonds(state::InfiniteMPS, H::MPOHamiltonian, alg::TwoSite, envs=environments(state,H))
     length(state) == 1 || throw(ArgumentError("Not implemented for multi-site mps"))
     state = changebonds(state, SvdCut(trscheme=truncbelow(alg.scut / alg.tol_scut)))
     @tensor AC2[-1 -2; -3 -4] := state.AC[1][-1,-2,1] * state.AR[1][1,-3,-4]

@@ -5,7 +5,7 @@ using TensorKit, MPSKit, SUNRepresentations
 export label
 label(sector::Sector) = string(sector)
 label(sector::SU2Irrep) = string(sector.j)
-label(sector::SUNIrrep) = "[$(sector.I[1]), $(sector.I[2]), $(sector.I[3])]"
+label(sector::SUNIrrep) = "[$(sector.I[1]) $(sector.I[2]) $(sector.I[3])]"
 label(sector::Trivial) = "Trivial"
 #= 
 #= const matlab_colors = [RGB(0.000, 0.447, 0.741), RGB(0.850, 0.325, 0.098),
